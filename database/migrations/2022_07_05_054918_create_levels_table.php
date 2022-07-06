@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Level;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,6 +19,11 @@ return new class extends Migration
             $table->text("name");
             $table->timestamps();
         });
+
+        $defaultLevels = ['novice', 'adept', 'expert', 'master'];
+        foreach ($defaultLevels as $level) {
+            Level::create(['name' => $level]);
+        }
     }
 
     /**
