@@ -11,7 +11,7 @@ return new class extends Migration {
      * @return void
      */
 
-    private array $textFields = ['name', 'question', 'correct_answer'];
+    private array $textFields = ['question', 'correct_answer'];
 
 
     public function up()
@@ -21,7 +21,7 @@ return new class extends Migration {
             foreach ($this->textFields as $field) {
                 $table->text($field);
             }
-            $table->date("repeat_date");
+            $table->date("repeat_date")->nullable(true);
             $table->foreignId("collection_id")->references("id")->on("collections")->onUpdate("cascade")->onDelete("cascade");
             $table->foreignId("status_id")->references("id")->on("statuses")->onUpdate("cascade")->nullOnDelete();
             $table->timestamps();
