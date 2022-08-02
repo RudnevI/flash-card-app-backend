@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->text("name");
-            $table->unsignedInteger("exp");
+            $table->unsignedInteger("exp")->default(0);
             $table->timestamps();
         });
     }

@@ -28,7 +28,8 @@ $routes = [
     'levels',
     'statuses',
     'questions',
-    'options'
+    'options',
+    'profiles'
 ];
 
 foreach ($routes as $route) {

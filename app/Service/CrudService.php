@@ -29,8 +29,10 @@ class CrudService
     {
         $criteria = [];
         foreach ($data as $key => $value) {
-            array_push($criteria, [$key, '=', $value]);
+            $currentValue = str_contains($key, 'id') ? intval($value) : $value;
+            array_push($criteria, [$key, '=', $currentValue]);
         }
+
         return $criteria;
     }
 

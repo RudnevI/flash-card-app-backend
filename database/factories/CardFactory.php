@@ -2,25 +2,21 @@
 
 namespace Database\Factories;
 
+
+use App\Models\AbstractModel;
 use App\Models\Card;
-use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Collection;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Card>
  */
-class CardFactory extends Factory
+class CardFactory extends AbstractFactory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition()
-    {
-        $card = new Card();
-        dd($card->getAttributes());
-        return [
+    protected AbstractModel $currentModel;
 
-        ];
+    public function __construct($count = null, ?Collection $states = null, ?Collection $has = null, ?Collection $for = null, ?Collection $afterMaking = null, ?Collection $afterCreating = null, $connection = null)
+    {
+        parent::__construct($count, $states, $has, $for, $afterMaking, $afterCreating, $connection);
+        $this->currentModel = new Card();
     }
 }

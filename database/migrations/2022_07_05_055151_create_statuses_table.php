@@ -18,6 +18,11 @@ return new class extends Migration
             $table->text("name");
             $table->timestamps();
         });
+
+        foreach (['new', 'scheduled', 'repeat_now'] as $status) {
+            \App\Models\Status::create(['name' => $status]);
+        }
+
     }
 
     /**
