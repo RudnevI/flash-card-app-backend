@@ -9,7 +9,7 @@ class Card extends AbstractModel
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'question', 'correct_answer', 'collection_id', 'status_id'];
+    protected $fillable = ['name', 'question', 'correct_answer', 'collection_id', 'status_id', 'repeat_date'];
 
     protected array $textFields = ['name', 'question', 'correct_answer'];
 

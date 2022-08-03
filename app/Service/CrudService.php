@@ -3,6 +3,8 @@
 namespace App\Service;
 
 
+use Carbon\Carbon;
+
 class CrudService
 {
     public function get($model)
@@ -22,6 +24,13 @@ class CrudService
 
     public function create($model, $data)
     {
+        foreach ($data as $key=>$element) {
+            if(str_contains($key, 'date')) {
+
+                $data[$key] = Carbon::parse($element);
+            }
+        }
+
         return $model::create($data);
     }
 
