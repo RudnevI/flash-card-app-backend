@@ -48,13 +48,18 @@ class CrudService
     public function getByCriteria($model, $data)
     {
         unset($data['model']);
-        return $model::where($this->formCriteria($data))->get();
+        return $this->getBuilderByCriteria($model, $data)->get();
+    }
+
+    private function getBuilderByCriteria($model, $data) {
+
+        return $model::where($this->formCriteria($data));
     }
 
     public function deleteByCriteria($model, $data)
     {
         unset($data['model']);
-        $this->getByCriteria($model, $data)->delete();
+        return $this->getBuilderByCriteria($model, $data)->delete();
     }
 
     public function updateByCriteria($model, $criteria, $data)

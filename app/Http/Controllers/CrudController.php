@@ -36,4 +36,8 @@ class CrudController
     {
         return $this->service->updateByCriteria($request->get('model'), $request->get('criteria'), $request->get('data'));
     }
+
+    public function deleteByCriteria(Request $request) {
+        return $this->service->deleteByCriteria($request->get('model'), $request->all());
+    }
 }
