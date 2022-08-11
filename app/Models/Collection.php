@@ -13,4 +13,5 @@ class Collection extends AbstractModel
     protected array $numericFields = ['exp'];
 
     protected $fillable = ['name', 'profile_id', 'exp'];
+
 }

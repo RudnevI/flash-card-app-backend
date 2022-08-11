@@ -17,6 +17,8 @@ class CrudController
         $this->service = $service;
     }
 
+
+
     public function get(Request $request)
     {
         return $this->service->get($request->get('model'));
@@ -39,5 +41,9 @@ class CrudController
 
     public function deleteByCriteria(Request $request) {
         return $this->service->deleteByCriteria($request->get('model'), $request->all());
+    }
+
+    public function getWithRelations(Request $request) {
+        return $this->service->getWithRelations($request->get('model'), $request->get('relations'));
     }
 }

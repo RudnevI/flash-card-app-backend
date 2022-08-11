@@ -39,5 +39,6 @@ foreach ($routes as $route) {
         Route::post($route, 'create');
         Route::put($route . '/criteria', 'updateByCriteria');
         Route::delete($route .'/criteria', 'deleteByCriteria');
+        Route::get($route.'/relations', 'getWithRelations');
     });
 }

@@ -22,6 +22,10 @@ class CrudService
         return $model::with($relationName)->get();
     }
 
+    public function getWithRelations($model, $relations) {
+        return $model::with($relations)->get();
+    }
+
     public function create($model, $data)
     {
         foreach ($data as $key=>$element) {
