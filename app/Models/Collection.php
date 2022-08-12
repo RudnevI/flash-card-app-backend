@@ -14,4 +14,7 @@ class Collection extends AbstractModel
 
     protected $fillable = ['name', 'profile_id', 'exp'];
 
+    public function profile() {
+        return $this->belongsTo(Profile::class);
+    }
 }

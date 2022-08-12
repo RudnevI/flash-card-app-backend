@@ -13,4 +13,11 @@ class Card extends AbstractModel
 
     protected array $textFields = ['name', 'question', 'correct_answer'];
 
+    public function collection() {
+        return $this->belongsTo(Collection::class);
+    }
+
+    public function status() {
+        return $this->belongsTo(Status::class);
+    }
 }
